@@ -1,0 +1,45 @@
+
+create vnc session
+-----------------
+vncserver -localhost no
+
+To load docker images for tar file
+--------------
+docker load -i <tar_file>.tar.gz
+
+docker rm -f $(docker ps -a -q)
+docker system prune -a
+
+How to become sudo user
+-------------
+sudo -i
+visudo
+$USER ALL=(ALL) NOPASSWD: ALL
+
+
+Install apache and create symbolic link
+---------------------
+sudo apt update
+sudo apt install apache2
+sudo service apache2 status
+sudo ln -s /home/cems/nthallap/cems-automation/cems-l3-scripts/Results  /var/www/html/
+http://<IP_ADDRESS>/Results/log.html
+
+
+VPN Network issue
+--------
+ipconfig /release
+ipconfig /renew
+
+Delete NS in termination state
+----------
+NS=`kubectl get ns |grep Terminating | awk 'NR==1 {print $1}'` && kubectl get namespace "$NS" -o json   | tr -d "\n" | sed "s/\"finalizers\": \[[^]]\+\]/\"finalizers\": []/"   | kubectl replace --raw /api/v1/namespaces/$NS/finalize -f -
+
+How to unintsll kubernetes object with helm
+----------------
+helm list -A  --> list all object from all Name spaces
+helm uninstall <ojbect> -n <name-space>
+
+Update a sting in multiple files in single shot
+------------
+find ./ -type f -exec sed -i 's/<old_string>/<new_string>/g' {} \;

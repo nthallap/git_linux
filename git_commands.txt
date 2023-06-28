@@ -1,0 +1,9 @@
+git config --global user.name "Nageswara Rao Thallapalli"
+git config --global user.email "nagthallapalli@gmail.com"
+
+git branch -m <old name> <new_name>
+
+git rebase -i HEAD~6
+
+git rebase -i <branch>
+
