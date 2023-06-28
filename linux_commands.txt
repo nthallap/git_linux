@@ -3,12 +3,9 @@ create vnc session
 -----------------
 vncserver -localhost no
 
-To load docker images for tar file
---------------
-docker load -i <tar_file>.tar.gz
-
-docker rm -f $(docker ps -a -q)
-docker system prune -a
+Unlock VNC sessions
+------
+sudo loginctl unlock-sessions
 
 How to become sudo user
 -------------
@@ -31,15 +28,20 @@ VPN Network issue
 ipconfig /release
 ipconfig /renew
 
-Delete NS in termination state
-----------
-NS=`kubectl get ns |grep Terminating | awk 'NR==1 {print $1}'` && kubectl get namespace "$NS" -o json   | tr -d "\n" | sed "s/\"finalizers\": \[[^]]\+\]/\"finalizers\": []/"   | kubectl replace --raw /api/v1/namespaces/$NS/finalize -f -
 
-How to unintsll kubernetes object with helm
-----------------
-helm list -A  --> list all object from all Name spaces
-helm uninstall <ojbect> -n <name-space>
+To login root user in ubuntu
+--------------
+sudo su
+vi /etc/ssh/sshd_config
+PermitRootLogin yes
+systemctl reload sshd
+
 
 Update a sting in multiple files in single shot
 ------------
 find ./ -type f -exec sed -i 's/<old_string>/<new_string>/g' {} \;
+
+to over come vi edditor issue
+--------
+vim ~/.vimrc
+set nocompatible
