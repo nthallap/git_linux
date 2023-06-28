@@ -7,3 +7,7 @@ git rebase -i HEAD~6
 
 git rebase -i <branch>
 
+git branch -r   -> to see the list of branches available>
+
+git diff --staged <file_name>  -> to see the diff of a file that was added to staging area.
+
