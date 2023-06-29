@@ -1,0 +1,139 @@
+API
+---------------
+
+SOAP -  simple object access protocol
+REST - Reprezentation Sate Transfer
+
+WSDL - Web Services Description Language
+UDDI - UDDI provides a repository for Web-services descriptions
+
+SOAP 
+======
+
+In SOAP only POST request will be supported. which is old technology.
+SOAP Enevelop
+
+	SOAP HEADER 
+	..........
+	..........
+
+	SOAP BODY
+	.........
+	.........
+
+
+Example of SOAP
+------------
+<?xml version="1.0"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://www.w3.org/2001/12/soap-envelope" SOAP-ENV:encodingStyle=" http://www.w3.org/2001/12/soap-encoding">
+          <soap:Body>
+        <Guru99WebService xmlns="http://tempuri.org/">
+                  <TutorialID>int</TutorialID>
+                </Guru99WebService>
+          </soap:Body>
+</SOAP-ENV:Envelope>
+
+
+HTTP Methods
+============
+
+GET  -- TO get data
+
+POST  -- To create a new resource
+
+PUT, PATCH  -- To update a resource
+
+Delete  -- To delete a resoure
+
+
+REST
+=========
+Resources -- Everything is resource in REST
+URI  - Uniform Resource Identifier ( to indetify a resource )
+		<protocol>://<servicename>/<ResourceType>/<ResourceID>
+		http://www.example.org/users/1234
+		
+ENDPOINT : it is a URL(website address)
+
+URL - Uniform Resource Locator
+	domain - http://www.example.org
+	path parameter - users/
+	Queryparameter - page=2
+	ex: http://www.example.org/users?page=2
+
+State less -- Server will not store/maintain any session. so it is state less. 
+caching - happends at client side 
+layering - mutliple layers can exist between client and server. example gateway
+code-on-demand -- client request a resource. server response some java script. need to execute in clint slide.
+					this is optional. 
+					
+ALL Web services are API, but not all API are web services
+A web services is nothing but a API wrapped in HTTP protocol
+Web services need network, where as API no need any network
+
+
+npm install -g newman
+newman run <json file> -r html
+npm install -g json-server
+json-server info.json
+
+========
+
+1) Fake API Creation & Requests
+2) postman variables
+3) workflows
+How to create own API's(Fake API's)
+----------------------------------
+1) Install NodeJS
+ Donwload link: https://nodejs.org/en/download/
+ After installation give below command:
+  node --version
+2) npm (comes with node.js)
+ check version: 
+  npm --version
+3) install json-server
+ npm install -g json-server
+4) create info.json file with sample data(json format)
+ Loc: C:\Users\admin\info.json
+5) Run the below command to make your API's up and running.
+ json-server info.json
+ 
+GET   http://localhost:3000/users
+GET         http://localhost:3000/users/1
+POST http://localhost:3000/users
+PUT http://localhost:3000/users/4
+DELETE http://localhost:3000/users/4
+
+Postman Variables
+--------
+1) Collection variables
+2) Environment variables/Global variables
+
+Collection variables
+ Right click on - Collection - Edit - Variables - Define varaibles (Key,value) Update
+ Usage: {{Key}}
+ 
+(Or) postman.setGlobalVariable("key","value");
+  postman.clearGlobalVariable("key");
+
+Environment variables/Global variables
+ Manage Environments - Global-Key,Value--Save
+ Usage: {{Key}}
+WorkFlows
+---------------------
+postman.setNextRequest("Request Name");
+postman.setNextRequest("null")
+
+
+====================
+GraphQL
+Graph Query Language
+
+We have only POST operation
+
+Mainly 3 types 
+1. Queries(read)
+2. Mutations(create,update,delete)
+3. Subscriptions(listen for data)
+
+for using GraphQL API must be developed GraphQL type only
