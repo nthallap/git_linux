@@ -45,3 +45,5 @@ to over come vi edditor issue
 --------
 vim ~/.vimrc
 set nocompatible
+
+sshpass -p "password" ssh -o StrickHostKeyChecking=no USER@IPADDRESS <commands.txt
