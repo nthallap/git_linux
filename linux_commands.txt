@@ -19,7 +19,7 @@ Install apache and create symbolic link
 sudo apt update
 sudo apt install apache2
 sudo service apache2 status
-sudo ln -s /home/cems/nthallap/cems-automation/cems-l3-scripts/Results  /var/www/html/
+sudo ln -s /root/nthallap/results  /var/www/html/
 http://<IP_ADDRESS>/Results/log.html
 
 
@@ -47,3 +47,14 @@ vim ~/.vimrc
 set nocompatible
 
 sshpass -p "password" ssh -o StrickHostKeyChecking=no USER@IPADDRESS <commands.txt
+
+
+ssh-keygen -t ed25519 -C "nageswara.rao-thallapalli@hpe.com"
+
+docker ps -a | awk '/centos/ {print $1, $2}'
+-------
+grep centos from output first and second column
+-F':'  to set a delimeter
+
+to set environment variable
+export VARIABLE_NAME=value
