@@ -6,8 +6,24 @@ git branch -m <old name> <new_name>
 git rebase -i HEAD~6
 
 git rebase -i <branch>
+git rebase master branch-X --> to rebase branch-X with master branch latest changes
+git checkout branch-X
+git rebase -i master ---> to rebase branch-X with master branch chages interactively
 
 git branch -r   -> to see the list of branches available>
 
 git diff --staged <file_name>  -> to see the diff of a file that was added to staging area.
 
+git stash --> stash the chages
+	git stash push -m "my_name" files    --> to stash specific files in git
+
+git clone --branch [branch_name] [remote-url]  --> cloning specific branch
+
+// create and checkout new branch in one line
+git checkout -b new_branch
+
+To change the identity for git
+your configuration file:
+    git config --global --edit
+After doing this, you may fix the identity used for this commit with:
+    git commit --amend --reset-author
