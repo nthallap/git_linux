@@ -58,3 +58,6 @@ grep centos from output first and second column
 
 to set environment variable
 export VARIABLE_NAME=value
+
+create multiple files
+touch file_{1..10}.txt
